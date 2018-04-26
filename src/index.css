@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.normal {
+  background: #ccc;
+  color: #000;
+}
+.active {
+  background: #fbfb09;
+  font-weight: 600;
+  text-transform: uppercase;
+}
