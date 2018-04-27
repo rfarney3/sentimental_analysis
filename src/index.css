@@ -13,3 +13,24 @@ body {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+.news-card {
+  height: 24rem;
+  background: #EDEDEF;
+  border: solid white;
+  overflow: scroll;
+}
+
+.content {
+  text-align: left;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+.card-floater {
+  text-align: center;
+}

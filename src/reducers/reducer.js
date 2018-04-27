@@ -1,6 +1,3 @@
-import { fetchArticlesBegin, fetchArticlesFailure, fetchArticlesSuccess} from "../actions/articleActions.js"
-
-
 let defaultState = {
   articles: [],
   loading: false,

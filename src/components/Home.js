@@ -5,6 +5,10 @@ import { connect } from "react-redux"
 import { fetchArticles } from "../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 import NewsCard from "./NewsCard.js"
+import { Layout, Divider } from "antd"
+import { Card, Col, Row } from 'antd';
+
+const { Header } = Layout
 
 
 class Home extends React.Component {
@@ -26,11 +30,10 @@ class Home extends React.Component {
     return (
       <div>
         <NavBar />
-        <div className="ui vertically divided grid">
-          <div className="two column row">
-            {this.props.articles.loading === true ? this.createCards() : null}
-          </div>
-        </div>
+        <Header style={{background: "white"}}>
+        </Header>
+        <Divider />
+        {this.props.articles.loading === true ? this.createCards() : null}
       </div>
     )
   }

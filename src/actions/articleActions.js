@@ -12,5 +12,21 @@ export function fetchArticles() {
         .then(json => dispatch({ type: "ADD_ARTICLES", payload: json}));
     }
   }
-
   // , () => (this.postFeels(this.state.headlines))
+
+  // grabHeadlines(data) {
+  //   let art = data.map((article) => article.title)
+  //   return art
+  // }
+  //
+  // postFeels(headline) {
+  //   fetch(INDICO_URL, {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       'api_key': INDICO_API_KEY,
+  //       'data': headline,
+  //     })
+  //   })
+  //   .then(res => res.json())
+  //   .then(json => console.log(json))
+  // }
