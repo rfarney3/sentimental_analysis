@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { Card, Col, Row, Divider } from 'antd';
+import { Col } from 'antd';
 
 class NewsCard extends React.Component {
   state = {
@@ -19,8 +19,8 @@ class NewsCard extends React.Component {
         <Col className="news-card" span={6}>
           <div className="card-floater">
             <div>
-              <p style={{"font-weight":"400"}}>New York Times</p>
-              <img style={{"width":"30px", "text-align":"left"}}src="http://www.nytimes.com/services/mobile/img/ios-newsreader-icon.png"/>
+              <p style={{"fontWeight":"400"}}>New York Times</p>
+              <img alt="sup" style={{"width":"30px", "textAlign":"left"}}src="http://www.nytimes.com/services/mobile/img/ios-newsreader-icon.png"/>
             </div>
             <img alt="NYT pic" src={this.props.image}/>
             <br/>

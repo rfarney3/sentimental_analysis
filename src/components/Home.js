@@ -1,21 +1,42 @@
 import React from "react"
 import NavBar from "./NavBar.js"
+import config from "../constants.js"
 
 import { connect } from "react-redux"
 import { fetchArticles } from "../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 import NewsCard from "./NewsCard.js"
 import { Layout, Divider } from "antd"
-import { Card, Col, Row } from 'antd';
+// import { Card, Col, Row } from 'antd';
 
 const { Header } = Layout
+const INDICO_URL = "https://apiv2.indico.io/emotion/batch"
 
 
 class Home extends React.Component {
-
+  state = {
+    headlines: []
+  }
   componentDidMount() {
     this.props.getArticles()
   }
+
+  componentDidUpdate(){
+    this.fetchSentiment()
+  }
+
+  fetchSentiment() {
+    fetch(INDICO_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        'api_key': config.INDICO_API_KEY,
+        'data': this.props.articles.headlines
+      })
+    })
+    .then(res => res.json())
+    .then(json => console.log(json))
+  }
+
 
   createCards = () => {
     return this.props.articles.articles.results.map((article) => {
@@ -24,9 +45,8 @@ class Home extends React.Component {
     })
   }
 
+
   render() {
-
-
     return (
       <div>
         <NavBar />
@@ -41,13 +61,14 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    articles: state.articles
+    articles: state.articles,
+    headlines: state.headlines
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getArticles: bindActionCreators(fetchArticles, dispatch)
+    getArticles: bindActionCreators(fetchArticles, dispatch),
   }
 }
 

@@ -1,7 +1,7 @@
 let defaultState = {
   articles: [],
   loading: false,
-  // headlines: []
+  headlines: []
 }
 
 export function rootReducer(state = defaultState, action) {
@@ -10,7 +10,8 @@ export function rootReducer(state = defaultState, action) {
       return {...state,
         articles: {
           loading: true,
-          articles: action.payload
+          articles: action.payload,
+          headlines: action.payload.results.map((article) => article.title)
           }
         }
     case "LOADING_ARTICLES":
