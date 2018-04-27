@@ -1,12 +1,29 @@
+import { fetchArticlesBegin, fetchArticlesFailure, fetchArticlesSuccess} from "../actions/articleActions.js"
 
-const defaultState = {
 
+let defaultState = {
+  articles: [],
+  loading: false,
+  // headlines: []
 }
 
 export function rootReducer(state = defaultState, action) {
   switch (action.type) {
-    case "ADD_SOMETHING":
-      return {something_in_state: state.something_in_state.concat(action.something)}
+    case "ADD_ARTICLES":
+      return {...state,
+        articles: {
+          loading: true,
+          articles: action.payload
+          }
+        }
+    case "LOADING_ARTICLES":
+      return {...state,
+        articles: {
+          loading: {
+            ...!state.articles.loading
+          }
+        }
+      }
     default:
       return state
   }
