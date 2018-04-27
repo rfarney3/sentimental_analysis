@@ -12,9 +12,26 @@ class App extends Component {
   render() {
     // console.log(this.state.headlines);
     // console.log(this.state.articles);
+
+  // submitForm = (history) => {
+  //   if (this.state.form.signingUp) {
+  //     this.register(history)
+  //   } else if (this.state.form.username !== '') {
+  //     this.setState({
+  //       form: {
+  //         ...this.state.form,
+  //         loggedIn: true
+  //       }
+  //       // currentUser: this.findUser()
+  //     }, () => {
+  //       history.push("/settings")
+  //     })
+  //   }
+  // }
+  
     return (
       <div>
-        <Route exact path="/login" render={(renderProps) => {
+        <Route exact path="/" render={(renderProps) => {
           return <Login/> }}/>
         <Route exact path="/home" render={(renderProps) => {
           return <Home/>}}/>

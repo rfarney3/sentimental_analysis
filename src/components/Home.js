@@ -22,7 +22,7 @@ class Home extends React.Component {
   }
 
   componentDidUpdate(){
-    this.fetchSentiment()
+    // this.fetchSentiment()
   }
 
   fetchSentiment() {
