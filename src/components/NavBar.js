@@ -8,7 +8,7 @@ class NavBar extends React.Component {
       <div>
         <ul>
           <li>
-            <NavLink to="/login" className="normal" activeClassName="active" exact>Login</NavLink>
+            <NavLink to="/" className="normal" activeClassName="active" exact>Login</NavLink>
           </li>
           <li>
             <NavLink to="/home" className="normal" activeClassName="active" exact>Home</NavLink>

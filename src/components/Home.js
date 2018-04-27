@@ -14,9 +14,7 @@ const INDICO_URL = "https://apiv2.indico.io/emotion/batch"
 
 
 class Home extends React.Component {
-  state = {
-    headlines: []
-  }
+
   componentDidMount() {
     this.props.getArticles()
   }
@@ -44,6 +42,7 @@ class Home extends React.Component {
       return <NewsCard key={article.url} title={article.title} abstract={article.abstract} section={article.section} url={article.short_url} image={articleurl} />
     })
   }
+
 
 
   render() {
