@@ -10,8 +10,6 @@ import Home from "./components/Home.js"
 
 class App extends Component {
   render() {
-    // console.log(this.state.headlines);
-    // console.log(this.state.articles);
 
   // submitForm = (history) => {
   //   if (this.state.form.signingUp) {
@@ -28,7 +26,7 @@ class App extends Component {
   //     })
   //   }
   // }
-  
+
     return (
       <div>
         <Route exact path="/" render={(renderProps) => {

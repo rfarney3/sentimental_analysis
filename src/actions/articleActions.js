@@ -1,11 +1,9 @@
-import config from "../constants.js"
-
-const NYT_URL = "https://api.nytimes.com/svc/topstories/v2/home.json?&api-key=";
+const BACKEND_URL = "http://localhost:3000/api/v1/articles"
 
 export function fetchArticles() {
   return dispatch => {
     dispatch({ type: "LOADING_ARTICLES"});
-      return fetch(NYT_URL + config.NYT_API_KEY)
+      return fetch(BACKEND_URL)
         .then(res => res.json())
         .then(json => dispatch({
           type: "ADD_ARTICLES", payload: json
