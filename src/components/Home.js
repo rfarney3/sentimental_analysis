@@ -11,9 +11,17 @@ import { Layout, Divider } from "antd"
 
 const { Header } = Layout
 const INDICO_URL = "https://apiv2.indico.io/emotion/batch"
+const HEADERS = {
+  'Content-Type': 'application/json',
+  'Accepts': 'application/json'
+}
+const BACKEND_URL = "http://localhost:3000/api/v1/new_yorks"
 
 
 class Home extends React.Component {
+  state = {
+    emotions: []
+  }
 
   componentDidMount() {
     this.props.getArticles()
@@ -32,9 +40,10 @@ class Home extends React.Component {
       })
     })
     .then(res => res.json())
-    .then(json => console.log(json))
+    .then(json => this.setState({
+      feelings: json
+    }, () => console.log(this.state.emotions)))
   }
-
 
   createCards = () => {
     return this.props.articles.articles.results.map((article) => {
@@ -43,9 +52,23 @@ class Home extends React.Component {
     })
   }
 
+  createRelationships() {
+    this.props.articles.articles.results.forEach((article) => {
+      const articleurl = article.multimedia[0] ? article.multimedia[0].url : "http://www.nytimes.com/services/mobile/img/ios-newsreader-icon.png"
+      return fetch(BACKEND_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          headline: article.title,
+          abstract: article.abstract,
 
+        }),
+        headers: HEADERS
+      }).then(res => res.json())
+    })
+  }
 
   render() {
+    console.log("props", this.props.articles);
     return (
       <div>
         <NavBar />

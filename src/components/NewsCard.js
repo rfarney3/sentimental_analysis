@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { Col } from 'antd';
 
+
 class NewsCard extends React.Component {
   state = {
     clicked: false
