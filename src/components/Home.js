@@ -1,5 +1,6 @@
 import React from "react"
 import NavBar from "./NavBar.js"
+import Chart from "./Chart.js"
 
 import { connect } from "react-redux"
 import { fetchArticles } from "../actions/articleActions.js"
@@ -28,6 +29,7 @@ class Home extends React.Component {
       <div>
         <NavBar />
         <Header style={{background: "white"}}>
+          <Chart allEmotions={this.props.articles.emotions}/>
         </Header>
         <Divider />
         {this.props.articles.loading === true ? this.createCards() : null}
