@@ -1,13 +1,15 @@
 import React from "react"
 import NavBar from "./NavBar.js"
 import Chart from "./Chart.js"
+import Category from "./Category.js"
 
 import { connect } from "react-redux"
 import { fetchArticles } from "../actions/articleActions.js"
 import { bindActionCreators } from "redux"
-import NewsCard from "./NewsCard.js"
-// import { Button } from "antd"
-// import { Card, Col, Row } from 'antd';
+// // import { Button } from "antd"
+// import { Card } from 'antd';
+import { Col } from 'antd';
+
 
 class Home extends React.Component {
 
@@ -15,24 +17,64 @@ class Home extends React.Component {
     this.props.getArticles()
   }
 
-  createCards = () => {
-    return this.props.articles.articles.map((article, index) => {
-      return <NewsCard key={index} title={article.headline} abstract={article.abstract} section={article.category} url={article.short_url} image={article.image} />
+  getUniqueCategories = () => {
+    let categoryObj = {}
+
+    if (this.props.articles.loading === true) {
+      this.props.articles.articles.forEach((article) => {
+        if(!categoryObj[article.category]) {
+          categoryObj[article.category] = 1
+        } else {
+          categoryObj[article.category] += 1
+        }
+      })
+    }
+    let uniques = []
+    for (let key in categoryObj) {
+      if(uniques.indexOf(key) === -1) {
+        uniques.push(key)
+      }
+    }
+    return uniques;
+  }
+
+  handleUniques = (categoryObj) => {
+    let uniques = []
+    for (let key in categoryObj) {
+      if(uniques.indexOf(key) === -1) {
+        uniques.push(key)
+      }
+    }
+    return uniques;
+  }
+
+  printCategories = () => {
+    let categories = this.getUniqueCategories()
+    return categories.map((category, index) => {
+      return <Category key={index} category={category} articles={this.props.articles} loading={this.props.articles.loading}/>
     })
   }
 
   render() {
-    console.log("props", this.props);
+
     return (
       <div>
         <NavBar />
           <Chart allEmotions={this.props.articles}/>
-
-          {this.props.articles.loading === true ? this.createCards() : null}
+          <h1>News Categories</h1>
+          {this.printCategories()}
       </div>
     )
   }
 }
+
+
+// <div className="content">
+//   <span className="card-title">{this.props.title}</span> <br/><br/>
+//   <p style={{"fontStyle":"italic"}}>Abstract:</p>
+//   <p>{this.props.abstract}</p>
+//   <Bar data={data}/>
+
 
 const mapStateToProps = state => {
   return {

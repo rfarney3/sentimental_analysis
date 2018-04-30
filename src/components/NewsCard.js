@@ -1,20 +1,60 @@
 import React from "react"
 import { connect } from "react-redux"
 import { Col } from 'antd';
+import { Bar } from "react-chartjs-2"
 
 
 class NewsCard extends React.Component {
-  state = {
-    clicked: false
-  }
-
-  showAbstract = () => {
-    this.setState({
-      clicked: !this.state.clicked
-    })
-  }
-
   render() {
+    const data = {
+
+        datasets: [
+            {
+                label: "Anger",
+                backgroundColor: '#FF4136',
+                borderWidth: 1,
+                data: [this.props.anger],
+            },
+            {
+                label: "Joy",
+                backgroundColor: '#A1E9F4',
+                borderWidth: 1,
+                data: [this.props.joy],
+            },
+            {
+                label: "Fear",
+                backgroundColor: '#480710',
+                borderWidth: 1,
+                data: [this.props.fear],
+            },
+            {
+                label: "Surprise",
+                backgroundColor: '#01FF70',
+                borderWidth: 1,
+                data: [this.props.surprise],
+            },
+            {
+                label: "Sadness",
+                backgroundColor: '#001f3f',
+                borderWidth: 1,
+                data: [this.props.sadness],
+            }
+        ],
+        scaleBeginAtZero : true,
+        options: {
+          scales: {
+            xAxes: [{
+              stacked: true,
+            }],
+              yAxes: [{
+                stacked: true,
+                ticks: {
+                  beginAtZero: true
+                },
+              }]
+          }
+        }
+    }
     return (
       <div>
         <Col className="news-card" span={6}>
@@ -29,12 +69,9 @@ class NewsCard extends React.Component {
 
           <div className="content">
             <span className="card-title">{this.props.title}</span> <br/><br/>
-            Category:<p style={{"fontStyle":"italic"}}>{this.props.section}</p>
-            <div onClick={this.showAbstract}>
-              <p>Click for abstract</p>
-              {this.state.clicked ? <p>{this.props.abstract}</p> : null}
-              <br/>
-            </div>
+            <p style={{"fontStyle":"italic"}}>Abstract:</p>
+            <p>{this.props.abstract}</p>
+            <Bar data={data}/>
           </div>
         </Col>
       </div>

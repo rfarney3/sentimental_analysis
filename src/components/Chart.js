@@ -1,6 +1,8 @@
 import React from "react"
 import { Bar } from "react-chartjs-2"
 // import data from "./data.js"
+import { Button } from "antd"
+
 
 class Chart extends React.Component {
 
@@ -75,10 +77,10 @@ class Chart extends React.Component {
         }
     }
 
-    console.log("chart props", this.props);
     return (
       <div>
         {this.props.allEmotions.loading === true ? <Bar data={data}/> : null}
+        <Button>New Chart</Button>
       </div>
     )
   }
@@ -86,6 +88,3 @@ class Chart extends React.Component {
 
 
 export default Chart
-
-
-// this.props.allEmotions.emotions
