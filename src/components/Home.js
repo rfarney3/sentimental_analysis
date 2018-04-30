@@ -6,10 +6,8 @@ import { connect } from "react-redux"
 import { fetchArticles } from "../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 import NewsCard from "./NewsCard.js"
-import { Layout, Divider } from "antd"
+// import { Button } from "antd"
 // import { Card, Col, Row } from 'antd';
-
-const { Header } = Layout
 
 class Home extends React.Component {
 
@@ -28,11 +26,9 @@ class Home extends React.Component {
     return (
       <div>
         <NavBar />
-        <Header style={{background: "white"}}>
-          <Chart allEmotions={this.props.articles.emotions}/>
-        </Header>
-        <Divider />
-        {this.props.articles.loading === true ? this.createCards() : null}
+          <Chart allEmotions={this.props.articles}/>
+
+          {this.props.articles.loading === true ? this.createCards() : null}
       </div>
     )
   }
