@@ -8,7 +8,7 @@ import { fetchArticles } from "../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 // // import { Button } from "antd"
 // import { Card } from 'antd';
-import { Col } from 'antd';
+// import { Carousel } from 'antd';
 
 
 class Home extends React.Component {
@@ -62,7 +62,7 @@ class Home extends React.Component {
         <NavBar />
           <Chart allEmotions={this.props.articles}/>
           <h1>News Categories</h1>
-          {this.printCategories()}
+          <div><h3>{this.printCategories()}</h3></div>
       </div>
     )
   }

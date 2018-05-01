@@ -63,7 +63,7 @@ class NewsCard extends React.Component {
               <p style={{"fontWeight":"400"}}>New York Times</p>
               <img alt="sup" style={{"width":"30px", "textAlign":"left"}}src="http://www.nytimes.com/services/mobile/img/ios-newsreader-icon.png"/>
             </div>
-            <img alt="NYT pic" src={this.props.image}/>
+            <a href={this.props.url} target="_blank"><img alt="NYT pic" src={this.props.image}/></a>
             <br/>
           </div>
 
