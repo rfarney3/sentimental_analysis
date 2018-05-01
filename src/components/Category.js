@@ -1,6 +1,6 @@
 import React from "react"
 import NewsCard from "./NewsCard.js"
-// import { Col, Modal, Button } from 'antd';
+// import { Collapse } from 'antd';
 
 
 class Category extends React.Component {
@@ -29,18 +29,13 @@ class Category extends React.Component {
   render() {
     return (
       <div onClick={this.handleClick}>
-        <ul>
-          <div className="list-item">
-            <li>{this.props.category}</li>
-            {this.state.clicked ? this.createCards(this.props.category) : null}
-          </div>
-        </ul>
-        <div>
+        <h2>{this.props.category}</h2>
+        <div className="card-holder">
+          {this.state.clicked ? this.createCards(this.props.category) : null}
         </div>
       </div>
     )
   }
 }
-
 
 export default Category

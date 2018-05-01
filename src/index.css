@@ -35,7 +35,14 @@ body {
   text-align: center;
 }
 
-/* .list-item {
-  position: fixed;
-  bottom: 0
-} */
+.card-holder {
+  overflow: scroll;
+  height: 20%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.home-page {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}

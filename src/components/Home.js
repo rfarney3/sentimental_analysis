@@ -58,11 +58,14 @@ class Home extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="home-page">
         <NavBar />
           <Chart allEmotions={this.props.articles}/>
-          <h1>News Categories</h1>
-          <div><h3>{this.printCategories()}</h3></div>
+          <br/>
+          <h1>New York Times News Categories</h1>
+          <div className="category-list-name">
+            <h3>{this.printCategories()}</h3>
+          </div>
       </div>
     )
   }
