@@ -1,7 +1,5 @@
 import React from "react"
 import NewsCard from "./NewsCard.js"
-// import { Collapse } from 'antd';
-
 
 class Category extends React.Component {
 

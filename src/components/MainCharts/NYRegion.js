@@ -1,17 +1,19 @@
 import React from "react"
 import { Bar } from "react-chartjs-2"
-// import data from "./data.js"
-import { Button } from "antd"
 
+import { connect } from "react-redux"
 
-class Chart extends React.Component {
+class NYRegionChart extends React.Component {
 
-  getEmotionByCategory = (specificEmotion)  => {
-    if(this.props.allEmotions.loading === true) {
-      let arrayOfData = this.props.allEmotions.emotions.map((emotionObj) => {
-        return parseInt(emotionObj[specificEmotion] * 100)
+  getEmotionByCategory = (emotion, category)  => {
+    if(this.props.articles.loading === true) {
+      let categoryData = this.props.articles.articles.filter((article) => {
+        return article.category === category
       })
-      return this.getAverage(arrayOfData)
+      let categoryEmotionData = categoryData.map((emotionObj) => {
+        return parseInt(emotionObj[emotion] * 100, 10)
+      })
+      return this.getAverage(categoryEmotionData)
     } else {
       return null
     }
@@ -22,43 +24,42 @@ class Chart extends React.Component {
     let sum = emotionData.reduce((a, b) => {
       return a + b
     }, 0)
-
     return (sum / length)
   }
 
   render() {
     const data = {
-        labels: ["All Time Mood (from #AboutAWeekAgo)"],
+        labels: ["N.Y. / Region"],
         datasets: [
             {
                 label: "Anger",
                 backgroundColor: '#FF4136',
                 borderWidth: 1,
-                data: [this.getEmotionByCategory("anger")],
+                data: [this.getEmotionByCategory("anger", "N.Y. / Region")],
             },
             {
                 label: "Joy",
                 backgroundColor: '#A1E9F4',
                 borderWidth: 1,
-                data: [this.getEmotionByCategory("joy")],
+                data: [this.getEmotionByCategory("joy", "N.Y. / Region")],
             },
             {
                 label: "Fear",
                 backgroundColor: '#480710',
                 borderWidth: 1,
-                data: [this.getEmotionByCategory("fear")],
+                data: [this.getEmotionByCategory("fear", "N.Y. / Region")],
             },
             {
                 label: "Surprise",
                 backgroundColor: '#01FF70',
                 borderWidth: 1,
-                data: [this.getEmotionByCategory("surprise")],
+                data: [this.getEmotionByCategory("surprise", "N.Y. / Region")],
             },
             {
                 label: "Sadness",
                 backgroundColor: '#001f3f',
                 borderWidth: 1,
-                data: [this.getEmotionByCategory("sadness")],
+                data: [this.getEmotionByCategory("sadness", "N.Y. / Region")],
             }
         ],
         scaleBeginAtZero : true,
@@ -79,12 +80,16 @@ class Chart extends React.Component {
 
     return (
       <div>
-        {this.props.allEmotions.loading === true ? <Bar data={data}/> : null}
-        <Button>New Chart</Button>
+        <Bar data={data}/>
       </div>
     )
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    articles: state.articles,
+  }
+}
 
-export default Chart
+export default connect(mapStateToProps)(NYRegionChart);

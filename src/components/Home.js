@@ -1,20 +1,27 @@
 import React from "react"
 import NavBar from "./NavBar.js"
-import Chart from "./Chart.js"
+import Charts from "./Charts.js"
 import Category from "./Category.js"
 
 import { connect } from "react-redux"
 import { fetchArticles } from "../actions/articleActions.js"
 import { bindActionCreators } from "redux"
-// // import { Button } from "antd"
-// import { Card } from 'antd';
-// import { Carousel } from 'antd';
 
 
 class Home extends React.Component {
 
+  state = {
+    clicked: false
+  }
+
   componentDidMount() {
     this.props.getArticles()
+  }
+
+  handleClick = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    })
   }
 
   getUniqueCategories = () => {
@@ -56,15 +63,14 @@ class Home extends React.Component {
   }
 
   render() {
-
     return (
       <div className="home-page">
         <NavBar />
-          <Chart allEmotions={this.props.articles}/>
+          <Charts />
           <br/>
-          <h1>New York Times News Categories</h1>
+          <h1 onClick={this.handleClick}>New York Times News Categories</h1>
           <div className="category-list-name">
-            <h3>{this.printCategories()}</h3>
+            <h3>{this.state.clicked ? this.printCategories() : null}</h3>
           </div>
       </div>
     )
@@ -72,16 +78,11 @@ class Home extends React.Component {
 }
 
 
-// <div className="content">
-//   <span className="card-title">{this.props.title}</span> <br/><br/>
-//   <p style={{"fontStyle":"italic"}}>Abstract:</p>
-//   <p>{this.props.abstract}</p>
-//   <Bar data={data}/>
-
 
 const mapStateToProps = state => {
   return {
     articles: state.articles,
+    defaultChart: state.defaultChart
   }
 }
 
