@@ -23,7 +23,7 @@ class Login extends React.Component {
           <input type="password" placeholder="password"/>
           <input type="submit"/>
         </form>
-        {this.state.fireRedirect && (<Redirect to={"/home"}/>)}
+        {this.state.fireRedirect && (<Redirect to={"/NewYorkTimes"}/>)}
       </div>
     )
   }

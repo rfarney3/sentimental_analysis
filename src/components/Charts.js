@@ -38,7 +38,9 @@ class Charts extends React.Component {
   render() {
     return (
       <div>
-        {this.renderCharts()}
+        <div className="charts">
+          {this.renderCharts()}
+        </div>
         <br/>
         <div className="buttons-div">
           <Button onClick={this.handleClick} >All Articles</Button>

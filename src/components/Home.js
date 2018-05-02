@@ -8,10 +8,10 @@ import { fetchArticles } from "../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 
 
-class Home extends React.Component {
+class NewYorkTimes extends React.Component {
 
   state = {
-    clicked: false
+    clicked: false,
   }
 
   componentDidMount() {
@@ -62,6 +62,7 @@ class Home extends React.Component {
     })
   }
 
+
   render() {
     return (
       <div className="home-page">
@@ -92,4 +93,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(NewYorkTimes);

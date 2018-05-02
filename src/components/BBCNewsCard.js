@@ -4,7 +4,7 @@ import { Col } from 'antd';
 import { Bar } from "react-chartjs-2"
 
 
-class NewsCard extends React.Component {
+class BBCNewsCard extends React.Component {
   render() {
     const data = {
 
@@ -60,10 +60,10 @@ class NewsCard extends React.Component {
         <Col className="news-card" span={6}>
           <div className="card-floater">
             <div>
-              <p style={{"fontWeight":"400"}}>New York Times</p>
+              <p style={{"fontWeight":"400"}}>BBC</p>
               <img alt="sup" style={{"width":"30px", "textAlign":"left"}}src="http://www.nytimes.com/services/mobile/img/ios-newsreader-icon.png"/>
             </div>
-            <a href={this.props.url} target="_blank"><img alt="NYT pic" src={this.props.image}/></a>
+            <a href={this.props.url} target="_blank"><img alt="BBC pic" style={{"width":"100px", "height":"70px"}}src={this.props.image}/></a>
             <br/>
           </div>
 
@@ -85,4 +85,4 @@ class NewsCard extends React.Component {
 //   }
 // }
 
-export default NewsCard;
+export default BBCNewsCard;

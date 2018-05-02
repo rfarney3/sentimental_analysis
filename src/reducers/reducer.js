@@ -1,13 +1,12 @@
 let defaultState = {
   articles: [],
   loading: false,
-  emotions: [],
-  defaultChart: "AllEmotions"
+  emotions: []
 }
 
 export function rootReducer(state = defaultState, action) {
   switch (action.type) {
-    case "ADD_ARTICLES":
+    case "ADD_NYT_ARTICLES":
       return {...state,
         articles: {
           loading: true,
@@ -16,9 +15,26 @@ export function rootReducer(state = defaultState, action) {
             return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
             })
           },
-          defaultChart: state.defaultChart
         }
-    case "LOADING_ARTICLES":
+    case "LOADING_NYT_ARTICLES":
+      return {...state,
+        articles: {
+          loading: {
+            ...!state.articles.loading
+          }
+        }
+      }
+    case "ADD_BBC_ARTICLES":
+      return {...state,
+        articles: {
+          loading: true,
+          articles: action.payload,
+          emotions: action.payload.map((article) => {
+            return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
+            })
+          },
+        }
+    case "LOADING_BBC_ARTICLES":
       return {...state,
         articles: {
           loading: {

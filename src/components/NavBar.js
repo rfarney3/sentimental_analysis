@@ -11,7 +11,10 @@ class NavBar extends React.Component {
             <NavLink to="/" className="normal" activeClassName="active" exact>Login</NavLink>
           </li>
           <li>
-            <NavLink to="/home" className="normal" activeClassName="active" exact>Home</NavLink>
+            <NavLink to="/NewYorkTimes" className="normal" activeClassName="active" exact>New York Times</NavLink>
+          </li>
+          <li>
+            <NavLink to="/BBC" className="normal" activeClassName="active" exact>BBC</NavLink>
           </li>
         </ul>
       </div>
