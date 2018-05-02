@@ -1,7 +1,7 @@
 const NYT_BACKEND_URL = "http://localhost:3000/api/v1/articles"
 const BBC_BACKEND_URL = "http://localhost:3000/api/v1/broadcastings"
 const FOX_BACKEND_URL = "http://localhost:3000/api/v1/foxes"
-
+const CNN_BACKEND_URL = "http://localhost:3000/api/v1/cables"
 
 export function fetchArticles() {
   return dispatch => {
@@ -32,6 +32,17 @@ export function fetchBBCArticles() {
             .then(res => res.json())
             .then(json => dispatch({
               type: "ADD_FOX_ARTICLES", payload: json
+            }))
+        }
+      }
+
+  export function fetchCNNArticles() {
+      return dispatch => {
+        dispatch({ type: "LOADING_CNN_ARTICLES"});
+          return fetch(CNN_BACKEND_URL)
+            .then(res => res.json())
+            .then(json => dispatch({
+              type: "ADD_CNN_ARTICLES", payload: json
             }))
         }
       }

@@ -9,6 +9,8 @@ import Login from "./components/Login.js"
 import NewYorkTimes from "./components/Home.js"
 import BBC from "./components/BBC.js"
 import Fox from "./components/Fox.js"
+import CNN from "./components/CNN.js"
+
 
 
 class App extends Component {
@@ -40,6 +42,8 @@ class App extends Component {
           return <BBC/>}}/>
         <Route exact path="/Fox" render={(renderProps) => {
           return <Fox/>}}/>
+        <Route exact path="/CNN" render={(renderProps) => {
+          return <CNN/>}}/>
       </div>
     );
   }
