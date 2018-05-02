@@ -22,6 +22,9 @@ class NavBar extends React.Component {
           <li>
             <NavLink to="/CNN" className="normal" activeClassName="active" exact>CNN</NavLink>
           </li>
+          <li>
+            <NavLink to="/ABC" className="normal" activeClassName="active" exact>ABC</NavLink>
+          </li>
         </ul>
       </div>
     )

@@ -10,6 +10,8 @@ import NewYorkTimes from "./components/Home.js"
 import BBC from "./components/BBC.js"
 import Fox from "./components/Fox.js"
 import CNN from "./components/CNN.js"
+import ABC from "./components/ABC.js"
+
 
 
 
@@ -44,6 +46,8 @@ class App extends Component {
           return <Fox/>}}/>
         <Route exact path="/CNN" render={(renderProps) => {
           return <CNN/>}}/>
+        <Route exact path="/ABC" render={(renderProps) => {
+          return <ABC/>}}/>
       </div>
     );
   }
