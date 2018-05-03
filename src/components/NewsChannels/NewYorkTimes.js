@@ -4,7 +4,7 @@ import Charts from "../Charts.js"
 import Category from "./Category.js"
 
 import { connect } from "react-redux"
-import { fetchNYTArticles } from "../../actions/articleActions.js"
+import { fetchArticles } from "../../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 
 
@@ -29,10 +29,12 @@ class NewYorkTimes extends React.Component {
 
     if (this.props.articles.loading === true) {
       this.props.articles.articles.forEach((article) => {
-        if(!categoryObj[article.category]) {
-          categoryObj[article.category] = 1
-        } else {
-          categoryObj[article.category] += 1
+        if (article.news_station === "New York Times") {
+          if(!categoryObj[article.category]) {
+            categoryObj[article.category] = 1
+          } else {
+            categoryObj[article.category] += 1
+          }
         }
       })
     }
@@ -83,13 +85,12 @@ class NewYorkTimes extends React.Component {
 const mapStateToProps = state => {
   return {
     articles: state.articles,
-    defaultChart: state.defaultChart
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getArticles: bindActionCreators(fetchNYTArticles, dispatch),
+    getArticles: bindActionCreators(fetchArticles, dispatch),
   }
 }
 

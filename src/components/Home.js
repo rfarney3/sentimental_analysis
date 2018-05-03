@@ -3,11 +3,7 @@ import NavBar from "./NavBar.js"
 import { Line } from "react-chartjs-2"
 
 import { connect } from "react-redux"
-import { fetchCNNArticles } from "../actions/articleActions.js"
-import { fetchNYTArticles } from "../actions/articleActions.js"
-import { fetchBBCArticles } from "../actions/articleActions.js"
-import { fetchFoxArticles } from "../actions/articleActions.js"
-import { fetchABCArticles } from "../actions/articleActions.js"
+import { fetchArticles } from "../actions/articleActions.js"
 
 import { bindActionCreators } from "redux"
 
@@ -15,11 +11,7 @@ import { bindActionCreators } from "redux"
 class Home extends React.Component {
 
   componentDidMount() {
-    this.props.getCNNArticles()
-    this.props.getNYTArticles()
-    this.props.getABCArticles()
-    this.props.getBBCArticles()
-    this.props.getFoxArticles()
+    this.props.getArticles()
   }
 
   render() {
@@ -164,11 +156,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getCNNArticles: bindActionCreators(fetchCNNArticles, dispatch),
-    getBBCArticles: bindActionCreators(fetchBBCArticles, dispatch),
-    getNYTArticles: bindActionCreators(fetchNYTArticles, dispatch),
-    getABCArticles: bindActionCreators(fetchABCArticles, dispatch),
-    getFoxArticles: bindActionCreators(fetchFoxArticles, dispatch),
+    getArticles: bindActionCreators(fetchArticles, dispatch),
   }
 }
 

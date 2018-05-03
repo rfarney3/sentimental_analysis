@@ -6,7 +6,7 @@ import MainChart from "../MainCharts/MainChart.js"
 import { Bar } from "react-chartjs-2"
 
 import { connect } from "react-redux"
-import { fetchABCArticles } from "../../actions/articleActions.js"
+import { fetchArticles } from "../../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 
 
@@ -28,8 +28,10 @@ class ABC extends React.Component {
 
   createCards = () => {
     if (this.props.articles.loading === true) {
-    return this.props.articles.articles.map((article, index) => {
-      return <ABCNewsCard key={index} title={article.headline} abstract={article.abstract} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
+      return this.props.articles.articles.map((article, index) => {
+        if (article.news_station === "American Broadcasting Corporation") {
+          return <ABCNewsCard key={index} title={article.headline} abstract={article.abstract} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
+        }
       })
     }
   }
@@ -58,7 +60,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getArticles: bindActionCreators(fetchABCArticles, dispatch),
+    getArticles: bindActionCreators(fetchArticles, dispatch),
   }
 }
 

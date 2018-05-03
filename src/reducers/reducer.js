@@ -6,7 +6,7 @@ let defaultState = {
 
 export function rootReducer(state = defaultState, action) {
   switch (action.type) {
-    case "ADD_NYT_ARTICLES":
+    case "ADD_ARTICLES":
       return {...state,
         articles: {
           loading: true,
@@ -16,79 +16,7 @@ export function rootReducer(state = defaultState, action) {
             })
           },
         }
-    case "LOADING_NYT_ARTICLES":
-      return {...state,
-        articles: {
-          loading: {
-            ...!state.articles.loading
-          }
-        }
-      }
-    case "ADD_BBC_ARTICLES":
-      return {...state,
-        articles: {
-          loading: true,
-          articles: action.payload,
-          emotions: action.payload.map((article) => {
-            return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
-            })
-          },
-        }
-    case "LOADING_BBC_ARTICLES":
-      return {...state,
-        articles: {
-          loading: {
-            ...!state.articles.loading
-          }
-        }
-      }
-    case "ADD_FOX_ARTICLES":
-      return {...state,
-        articles: {
-          loading: true,
-          articles: action.payload,
-          emotions: action.payload.map((article) => {
-            return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
-            })
-          },
-        }
-    case "LOADING_FOX_ARTICLES":
-      return {...state,
-        articles: {
-          loading: {
-            ...!state.articles.loading
-          }
-        }
-      }
-    case "ADD_CNN_ARTICLES":
-      return {...state,
-        articles: {
-          loading: true,
-          articles: action.payload,
-          emotions: action.payload.map((article) => {
-            return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
-            })
-          },
-        }
-    case "LOADING_CNN_ARTICLES":
-      return {...state,
-        articles: {
-          loading: {
-            ...!state.articles.loading
-          }
-        }
-      }
-    case "ADD_ABC_ARTICLES":
-      return {...state,
-        articles: {
-          loading: true,
-          articles: action.payload,
-          emotions: action.payload.map((article) => {
-            return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
-            })
-          },
-        }
-    case "LOADING_ABC_ARTICLES":
+    case "LOADING_ARTICLES":
       return {...state,
         articles: {
           loading: {
