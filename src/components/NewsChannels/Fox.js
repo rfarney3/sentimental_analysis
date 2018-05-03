@@ -1,16 +1,16 @@
 import React from "react"
-import NavBar from "./NavBar.js"
-import CNNNewsCard from "./CNNNewsCard.js"
-import MainChart from "./MainCharts/MainChart.js"
+import NavBar from "../NavBar.js"
+import FoxNewsCard from "./FoxNewsCard.js"
+import MainChart from "../MainCharts/MainChart.js"
 
 import { Bar } from "react-chartjs-2"
 
 import { connect } from "react-redux"
-import { fetchCNNArticles } from "../actions/articleActions.js"
+import { fetchFoxArticles } from "../../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 
 
-class CNN extends React.Component {
+class Fox extends React.Component {
 
   state = {
     clicked: false,
@@ -29,13 +29,15 @@ class CNN extends React.Component {
   createCards = () => {
     if (this.props.articles.loading === true) {
     return this.props.articles.articles.map((article, index) => {
-      return <CNNNewsCard key={index} title={article.headline} abstract={article.abstract} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
+      return <FoxNewsCard key={index} title={article.headline} abstract={article.abstract} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
       })
     }
   }
 
 
   render() {
+    console.log("bb", this.props);
+    this.createCards()
     return (
       <div className="home-page">
         <NavBar />
@@ -56,8 +58,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getArticles: bindActionCreators(fetchCNNArticles, dispatch),
+    getArticles: bindActionCreators(fetchFoxArticles, dispatch),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CNN);
+export default connect(mapStateToProps, mapDispatchToProps)(Fox);

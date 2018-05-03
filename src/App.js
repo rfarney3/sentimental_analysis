@@ -6,13 +6,12 @@ import './App.css';
 
 //components
 import Login from "./components/Login.js"
-import NewYorkTimes from "./components/Home.js"
-import BBC from "./components/BBC.js"
-import Fox from "./components/Fox.js"
-import CNN from "./components/CNN.js"
-import ABC from "./components/ABC.js"
-
-
+import Home from "./components/Home.js"
+import NewYorkTimes from "./components/NewsChannels/NewYorkTimes.js"
+import BBC from "./components/NewsChannels/BBC.js"
+import Fox from "./components/NewsChannels/Fox.js"
+import CNN from "./components/NewsChannels/CNN.js"
+import ABC from "./components/NewsChannels/ABC.js"
 
 
 class App extends Component {
@@ -38,6 +37,8 @@ class App extends Component {
       <div>
         <Route exact path="/" render={(renderProps) => {
           return <Login/> }}/>
+        <Route exact path="/home" render={(renderProps) => {
+          return <Home/> }}/>
         <Route exact path="/NewYorkTimes" render={(renderProps) => {
           return <NewYorkTimes/>}}/>
         <Route exact path="/BBC" render={(renderProps) => {

@@ -11,6 +11,9 @@ class NavBar extends React.Component {
             <NavLink to="/" className="normal" activeClassName="active" exact>Login</NavLink>
           </li>
           <li>
+            <NavLink to="/Home" className="normal" activeClassName="active" exact>Home</NavLink>
+          </li>
+          <li>
             <NavLink to="/NewYorkTimes" className="normal" activeClassName="active" exact>New York Times</NavLink>
           </li>
           <li>

@@ -1,12 +1,12 @@
 import React from "react"
-import NavBar from "./NavBar.js"
+import NavBar from "../NavBar.js"
 import ABCNewsCard from "./ABCNewsCard.js"
-import MainChart from "./MainCharts/MainChart.js"
+import MainChart from "../MainCharts/MainChart.js"
 
 import { Bar } from "react-chartjs-2"
 
 import { connect } from "react-redux"
-import { fetchABCArticles } from "../actions/articleActions.js"
+import { fetchABCArticles } from "../../actions/articleActions.js"
 import { bindActionCreators } from "redux"
 
 

@@ -4,7 +4,7 @@ import { Col } from 'antd';
 import { Bar } from "react-chartjs-2"
 
 
-class ABCNewsCard extends React.Component {
+class CNNNewsCard extends React.Component {
   render() {
     const data = {
 
@@ -55,18 +55,15 @@ class ABCNewsCard extends React.Component {
           }
         }
     }
-
-    const mage = this.props.image === null ? "https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/e3/5b/08/e35b0864-bcae-517c-b2b0-d5481996818a/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-4.png/1200x630bb.jpg" : this.props.image
-
     return (
       <div>
         <Col className="news-card" span={6}>
           <div className="card-floater">
             <div>
-              <p style={{"fontWeight":"400"}}>ABC</p>
-              <img alt="sup" style={{"width":"30px", "textAlign":"left"}}src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/e3/5b/08/e35b0864-bcae-517c-b2b0-d5481996818a/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-4.png/1200x630bb.jpg"/>
+              <p style={{"fontWeight":"400"}}>C N N</p>
+              <img alt="sup" style={{"width":"30px", "textAlign":"left"}}src="https://yt3.ggpht.com/a-/AJLlDp0ZdRWMgQ0r70gOBmYQd6dM8xcUhipQvQt_Gw=s900-mo-c-c0xffffffff-rj-k-no"/>
             </div>
-            <a href={this.props.url} target="_blank"><img alt="ABC pic" style={{"width":"100px", "height":"70px"}}src={mage}/></a>
+            <a href={this.props.url} target="_blank"><img alt="CNN pic" style={{"width":"100px", "height":"70px"}}src={this.props.image}/></a>
             <br/>
           </div>
 
@@ -81,7 +78,6 @@ class ABCNewsCard extends React.Component {
     )
   }
 }
-"https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/e3/5b/08/e35b0864-bcae-517c-b2b0-d5481996818a/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-4.png/1200x630bb.jpg"
 
 // const mapStateToProps = state => {
 //   return {
@@ -89,4 +85,4 @@ class ABCNewsCard extends React.Component {
 //   }
 // }
 
-export default ABCNewsCard;
+export default CNNNewsCard;

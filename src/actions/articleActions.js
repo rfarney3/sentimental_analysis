@@ -4,7 +4,7 @@ const FOX_BACKEND_URL = "http://localhost:3000/api/v1/foxes"
 const CNN_BACKEND_URL = "http://localhost:3000/api/v1/cables"
 const ABC_BACKEND_URL = "http://localhost:3000/api/v1/americans"
 
-export function fetchArticles() {
+export function fetchNYTArticles() {
   return dispatch => {
     dispatch({ type: "LOADING_NYT_ARTICLES"});
       return fetch(NYT_BACKEND_URL)

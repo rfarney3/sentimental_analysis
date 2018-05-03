@@ -1,5 +1,5 @@
 import React from "react"
-import NewsCard from "./NewsCard.js"
+import NYTNewsCard from "./NYTNewsCard.js"
 
 class Category extends React.Component {
 
@@ -17,7 +17,7 @@ class Category extends React.Component {
     if (this.props.loading === true) {
     return this.props.articles.articles.map((article, index) => {
       if (article.category === category) {
-        return <NewsCard key={index} title={article.headline} abstract={article.abstract} section={article.category} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
+        return <NYTNewsCard key={index} title={article.headline} abstract={article.abstract} section={article.category} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
         }
       })
     }

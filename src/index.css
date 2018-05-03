@@ -50,3 +50,10 @@ body {
 .buttons-div {
   text-align: center;
 }
+
+.charts {
+  text-align: center;
+  width: 85%;
+  height: 85%;
+  margin-left: 7rem;
+}
