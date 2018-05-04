@@ -23,12 +23,16 @@ body {
 
 .content {
   text-align: left;
+  margin: 1%;
+  padding: 5%
 }
 
 .card-title {
   font-size: 15px;
   font-weight: bold;
   font-variant: small-caps;
+  text-align: center;
+
 }
 
 .card-floater {
@@ -51,9 +55,13 @@ body {
   text-align: center;
 }
 
-.charts {
+/* .charts {
   text-align: center;
   width: 85%;
   height: 85%;
   margin-left: 7rem;
+} */
+
+.nav {
+  overflow: hidden;
 }

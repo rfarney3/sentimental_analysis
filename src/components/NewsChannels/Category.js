@@ -18,6 +18,8 @@ class Category extends React.Component {
     return this.props.articles.articles.map((article, index) => {
       if (article.category === category) {
         return <NYTNewsCard key={index} title={article.headline} abstract={article.abstract} section={article.category} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
+        } else {
+          return null
         }
       })
     }

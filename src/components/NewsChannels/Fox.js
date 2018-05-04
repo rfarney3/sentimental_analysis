@@ -1,7 +1,6 @@
 import React from "react"
 import NavBar from "../NavBar.js"
 import FoxNewsCard from "./FoxNewsCard.js"
-import MainChart from "../MainCharts/MainChart.js"
 
 import { Bar } from "react-chartjs-2"
 
@@ -31,20 +30,98 @@ class Fox extends React.Component {
       return this.props.articles.articles.map((article, index) => {
         if (article.news_station === "Fox News") {
           return <FoxNewsCard key={index} title={article.headline} abstract={article.abstract} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
+        } else {
+          return null
         }
       })
     }
   }
 
+  getEmotionByStation = (emotion, station) => {
+    if(this.props.articles.loading === true) {
+      let filteredArticles = this.props.articles.articles.filter((article) => {
+        return article.news_station === station
+      })
+      let emotionObj = filteredArticles.map((article) => {
+        return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
+      })
+      let arrayOfData = emotionObj.map((emotes) => {
+        return parseInt(emotes[emotion] * 100, 10)
+      })
+      return this.getAverage(arrayOfData)
+    } else {
+      return null
+    }
+  }
+
+  getAverage = (emotionData) => {
+    let length = emotionData.length
+    let sum = emotionData.reduce((a, b) => {
+      return a + b
+    }, 0)
+    return (sum / length)
+  }
+
 
   render() {
-    console.log("bb", this.props);
-    this.createCards()
+    const data = {
+        labels: ["All Time Fox News Sentiment (from #AboutAWeekAgo)"],
+        datasets: [
+            {
+                label: "Anger",
+                backgroundColor: '#FF4136',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("anger", "Fox News")],
+            },
+            {
+                label: "Joy",
+                backgroundColor: '#A1E9F4',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("joy", "Fox News")],
+            },
+            {
+                label: "Fear",
+                backgroundColor: '#480710',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("fear", "Fox News")],
+            },
+            {
+                label: "Surprise",
+                backgroundColor: '#01FF70',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("surprise", "Fox News")],
+            },
+            {
+                label: "Sadness",
+                backgroundColor: '#001f3f',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("sadness", "Fox News")],
+            }
+        ],
+        scaleBeginAtZero : true,
+        options: {
+          scales: {
+            xAxes: [{
+              stacked: true,
+            }],
+              yAxes: [{
+                stacked: true,
+                ticks: {
+                  beginAtZero: true
+                },
+              }]
+          }
+        }
+    }
+
     return (
       <div className="home-page">
         <NavBar />
-        <MainChart />
-        {this.props.articles.loading === true ? this.createCards() : null}
+        <Bar data={data} />
+        <h1 onClick={this.handleClick}>Fox News Stories</h1>
+        <div>
+          {this.state.clicked ? this.createCards() : null}
+        </div>
       </div>
     )
   }

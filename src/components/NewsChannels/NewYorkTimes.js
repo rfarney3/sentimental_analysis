@@ -72,7 +72,7 @@ class NewYorkTimes extends React.Component {
           <Charts />
           <br/>
           <h1 onClick={this.handleClick}>New York Times News Categories</h1>
-          <div className="category-list-name">
+          <div>
             <h3>{this.state.clicked ? this.printCategories() : null}</h3>
           </div>
       </div>

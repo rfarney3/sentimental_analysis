@@ -4,20 +4,10 @@ import { connect } from "react-redux"
 
 class MainChart extends React.Component {
 
-  // getEmotionByCategory = (specificEmotion, station)  => {
-  //   if(this.props.articles.loading === true) {
-  //     let arrayOfData = this.props.articles.emotions.map((emotionObj) => {
-  //       return parseInt(emotionObj[specificEmotion] * 100, 10)
-  //     })
-  //     return this.getAverage(arrayOfData)
-  //   } else {
-  //     return null
-  //   }
-  // }
-  getEmotionForNYT = (emotion) => {
+  getEmotionByStation = (emotion, station) => {
     if(this.props.articles.loading === true) {
       let filteredArticles = this.props.articles.articles.filter((article) => {
-        return article.news_station === "New York Times"
+        return article.news_station === station
       })
       let emotionObj = filteredArticles.map((article) => {
         return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
@@ -40,60 +30,59 @@ class MainChart extends React.Component {
   }
 
   render() {
-    console.log(this.getEmotionForNYT("anger"))
-    // const data = {
-    //     labels: ["All Time Mood (from #AboutAWeekAgo)"],
-    //     datasets: [
-    //         {
-    //             label: "Anger",
-    //             backgroundColor: '#FF4136',
-    //             borderWidth: 1,
-    //             data: [this.getEmotionForNYT("anger")],
-    //         },
-    //         {
-    //             label: "Joy",
-    //             backgroundColor: '#A1E9F4',
-    //             borderWidth: 1,
-    //             data: [this.getEmotionForNYT("joy")],
-    //         },
-    //         {
-    //             label: "Fear",
-    //             backgroundColor: '#480710',
-    //             borderWidth: 1,
-    //             data: [this.getEmotionForNYT("fear")],
-    //         },
-    //         {
-    //             label: "Surprise",
-    //             backgroundColor: '#01FF70',
-    //             borderWidth: 1,
-    //             data: [this.getEmotionForNYT("surprise")],
-    //         },
-    //         {
-    //             label: "Sadness",
-    //             backgroundColor: '#001f3f',
-    //             borderWidth: 1,
-    //             data: [this.getEmotionForNYT("sadness")],
-    //         }
-    //     ],
-    //     scaleBeginAtZero : true,
-    //     options: {
-    //       scales: {
-    //         xAxes: [{
-    //           stacked: true,
-    //         }],
-    //           yAxes: [{
-    //             stacked: true,
-    //             ticks: {
-    //               beginAtZero: true
-    //             },
-    //           }]
-    //       }
-    //     }
-    // }
+    const data = {
+        labels: ["All Time NYT News Sentiment (from #AboutAWeekAgo)"],
+        datasets: [
+            {
+                label: "Anger",
+                backgroundColor: '#FF4136',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("anger", "New York Times")],
+            },
+            {
+                label: "Joy",
+                backgroundColor: '#A1E9F4',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("joy", "New York Times")],
+            },
+            {
+                label: "Fear",
+                backgroundColor: '#480710',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("fear", "New York Times")],
+            },
+            {
+                label: "Surprise",
+                backgroundColor: '#01FF70',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("surprise", "New York Times")],
+            },
+            {
+                label: "Sadness",
+                backgroundColor: '#001f3f',
+                borderWidth: 1,
+                data: [this.getEmotionByStation("sadness", "New York Times")],
+            }
+        ],
+        scaleBeginAtZero : true,
+        options: {
+          scales: {
+            xAxes: [{
+              stacked: true,
+            }],
+              yAxes: [{
+                stacked: true,
+                ticks: {
+                  beginAtZero: true
+                },
+              }]
+          }
+        }
+    }
 
     return (
       <div>
-
+        <Bar data={data} />
       </div>
     )
   }
