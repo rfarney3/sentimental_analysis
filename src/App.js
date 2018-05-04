@@ -37,7 +37,7 @@ class App extends Component {
       <div>
         <Route exact path="/" render={(renderProps) => {
           return <Login/> }}/>
-        <Route exact path="/home" render={(renderProps) => {
+        <Route exact path="/Home" render={(renderProps) => {
           return <Home/> }}/>
         <Route exact path="/NewYorkTimes" render={(renderProps) => {
           return <NewYorkTimes/>}}/>

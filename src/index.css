@@ -62,6 +62,27 @@ body {
   margin-left: 7rem;
 } */
 
-.nav {
-  overflow: hidden;
+
+.head {
+  width: 95%;
+  height: 50%;
+  background-color: black;
+  position: absolute;
+  display: flex;
+}
+
+.pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;         /* Turns a square into a circle   */
+  background-color: #FF5722;  /* Sets color to Orange           */
+
+  animation: bounce 0.5s cubic-bezier(.5,0.05,1,.5);
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 200px, 0); }
 }

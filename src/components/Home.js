@@ -1,5 +1,6 @@
 import React from "react"
 import NavBar from "./NavBar.js"
+import Header from "./Header.js"
 import { Line } from "react-chartjs-2"
 
 import { connect } from "react-redux"
@@ -100,7 +101,12 @@ class Home extends React.Component {
     return (
       <div className="home-page">
         <NavBar />
-        <Line data={data}/>
+        <div>
+          <Header />
+        </div>
+        <div style={{"marginTop":"30%"}}>
+          <Line data={data}/>
+        </div>
       </div>
     )
   }
