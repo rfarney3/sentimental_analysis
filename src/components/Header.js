@@ -3,6 +3,7 @@ import React from "react"
 const Header = () => {
   return (
     <div className="head">
+      <marquee><h1 className="title">News Sentiment</h1></marquee>
       <img alt="news" className="fox" src="https://www.aim.org/wp-content/uploads/2017/04/b8b06e59-a557-4972-8dfc-da93b84e47b7.png"/>
       <img alt="news" className="bbc" src="https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/7e/16/20/7e1620ae-a7ac-f08f-5230-71a12cbfa123/AppIconGNL-1x_U007emarketing-0-85-220-9.png/246x0w.jpg"/>
       <img alt="news" className="abc" src="https://is5-ssl.mzstatic.com/image/thumb/Purple118/v4/79/fc/08/79fc084d-004c-320e-508d-be42ee0d1006/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-9.png/246x0w.jpg"/>

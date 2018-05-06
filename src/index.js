@@ -11,6 +11,11 @@ import thunk from "redux-thunk"
 
 // import { composeWithDevTools } from 'redux-devtools-extension';
 
+// const rootReducer = combineReducers({
+//   auth: authReducer,
+//   article: articleReducer
+// })
+
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 console.log("store", store);

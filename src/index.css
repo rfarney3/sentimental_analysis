@@ -55,7 +55,14 @@ body {
   text-align: center;
 }
 
+.title {
+  margin-top: 4%;
+  margin-left: 14.5%;
+  font-size: 120px;
+  background-color: white;
+  color: red;
 
+}
 
 .head {
   width: 95%;
@@ -63,6 +70,7 @@ body {
   background-color: gray;
   position: absolute;
   display: flex;
+  text-align: center;
 }
 
 

@@ -3,7 +3,7 @@ import './App.css';
 import { Route } from "react-router-dom"
 import './App.css';
 // import { connect } from "react-redux"
-
+// import { Link } from "react-router-dom"
 //components
 import Login from "./components/Login.js"
 import Home from "./components/Home.js"
@@ -35,7 +35,8 @@ class App extends Component {
 
     return (
       <div>
-        <Route exact path="/" render={(renderProps) => {
+
+        <Route exact path="/login" render={(renderProps) => {
           return <Login/> }}/>
         <Route exact path="/Home" render={(renderProps) => {
           return <Home/> }}/>

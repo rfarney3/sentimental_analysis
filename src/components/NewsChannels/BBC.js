@@ -1,7 +1,7 @@
 import React from "react"
 import NavBar from "../NavBar.js"
 import BBCNewsCard from "./BBCNewsCard.js"
-
+import Filter from "../Filter.js"
 import { Bar } from "react-chartjs-2"
 
 import { connect } from "react-redux"
@@ -13,6 +13,8 @@ class BBC extends React.Component {
 
   state = {
     clicked: false,
+    input: "",
+    filtered: []
   }
 
   componentDidMount() {
@@ -33,6 +35,14 @@ class BBC extends React.Component {
         } else {
           return null
         }
+      })
+    }
+  }
+
+  createFilteredCards = () => {
+    if (this.props.articles.loading === true) {
+      return this.state.filtered.map((article, index) => {
+        return <BBCNewsCard key={index} title={article.headline} abstract={article.abstract} url={article.url} image={article.image} anger={article.anger} fear={article.fear} joy={article.joy} sadness={article.sadness} surprise={article.surprise}/>
       })
     }
   }
@@ -60,6 +70,24 @@ class BBC extends React.Component {
       return a + b
     }, 0)
     return (sum / length)
+  }
+
+  getArticleByStation = (station) => {
+    if(this.props.articles.loading === true) {
+      return this.props.articles.articles.filter((article) => {
+        return article.news_station === station
+      })
+    }
+  }
+
+  onChange = (event) => {
+    this.setState({
+      input: event.target.value.toLowerCase()
+    }, () => this.setState({
+      filtered: this.getArticleByStation("British Broadcasting Corporation").filter((article) => {
+        return article.headline.toLowerCase().includes(this.state.input)
+      })
+    }))
   }
 
 
@@ -120,7 +148,8 @@ class BBC extends React.Component {
         <Bar data={data} />
         <h1 onClick={this.handleClick}>BBC News Stories</h1>
         <div>
-          {this.state.clicked ? this.createCards() : null}
+          {this.state.clicked ? <Filter onChange={this.onChange}/> : null}
+          {this.state.clicked ? this.state.filtered.length > 0 ? this.createFilteredCards() : this.createCards() : null}
         </div>
       </div>
     )

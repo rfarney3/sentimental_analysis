@@ -1,7 +1,8 @@
 let defaultState = {
   articles: [],
   loading: false,
-  emotions: []
+  emotions: [],
+  currentUser: {}
 }
 
 export function rootReducer(state = defaultState, action) {
@@ -24,7 +25,25 @@ export function rootReducer(state = defaultState, action) {
           }
         }
       }
+    case 'SET_CURRENT_USER':
+      const { id, username } = action.user;
+      return { ...state, currentUser: { id, username } };
+    case 'LOGOUT_USER':
+      return { ...state, currentUser: {} };
     default:
       return state
   }
 }
+
+//
+// export function authReducer(state = defaultState, action) {
+//   switch (action.type) {
+//     case 'SET_CURRENT_USER':
+//       const { id, username } = action.user;
+//       return { ...state, currentUser: { id, username } };
+//     case 'LOGOUT_USER':
+//       return { ...state, currentUser: {} };
+//     default:
+//       return state;
+//   }
+// };

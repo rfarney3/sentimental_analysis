@@ -18,7 +18,7 @@ class NavBar extends React.Component {
       <div style={{"width":"100%"}}>
         <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
           <Menu.Item key="mail"><Icon type="mail" />
-            <span><a href="http://localhost:3001/" rel="noopener noreferrer">Login</a></span>
+            <span><a href="http://localhost:3001/login" rel="noopener noreferrer">Login</a></span>
           </Menu.Item>
           <Menu.Item key="app" ><Icon type="appstore" />
             <span><a href="http://localhost:3001/Home" rel="noopener noreferrer">Home</a></span>
