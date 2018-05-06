@@ -66,7 +66,7 @@ body {
 }
 
 
-.pic1 {
+.fox {
   display: block;
   width: 100px;
   height: 100px;
@@ -78,19 +78,8 @@ body {
   animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
 }
 
-.pic1 {
-  display: block;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  position: absolute;
-  -webkit-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
-  -moz-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
-  -o-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
-  animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
-}
 
-.pic2 {
+.bbc {
   display: block;
   width: 100px;
   height: 100px;
@@ -102,7 +91,7 @@ body {
   animation: moveX 4.05s linear 0s infinite alternate, moveY 5.4s linear 0s infinite alternate;
 }
 
-.pic3 {
+.abc {
   display: block;
   width: 100px;
   height: 100px;
@@ -114,7 +103,7 @@ body {
   animation: moveX 3.85s linear 0s infinite alternate, moveY 1.9s linear 0s infinite alternate;
 }
 
-.pic4 {
+.nyt {
   display: block;
   width: 100px;
   height: 100px;
@@ -126,7 +115,7 @@ body {
   animation: moveX 2.69s linear 0s infinite alternate, moveY 2.4s linear 0s infinite alternate;
 }
 
-.pic5 {
+.cnn {
   display: block;
   width: 100px;
   height: 100px;

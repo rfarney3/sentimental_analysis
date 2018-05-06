@@ -1,8 +1,6 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
 import { Menu, Icon } from "antd"
 const SubMenu = Menu.SubMenu
-const MenuItemGroup = Menu.MenuItemGroup
 
 class NavBar extends React.Component {
   state = {
