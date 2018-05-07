@@ -58,15 +58,13 @@ class FoxNewsCard extends React.Component {
       <div>
         <Col className="news-card" span={6}>
           <div className="card-floater">
-            <div>
-              <p style={{"fontWeight":"400"}}>Fox News</p>
-              <img alt="sup" style={{"width":"30px", "textAlign":"left"}}src="http://global.fncstatic.com/static/v/all/static-page/apps-products/img/fn-logo.png"/>
-            </div>
-            <a href={this.props.url} target="_blank"><img alt="BBC pic" style={{"width":"100px", "height":"70px"}}src={this.props.image}/></a>
+            <a href={this.props.url} target="_blank"><img alt="Fox pic" style={{"width":"100px", "height":"70px", "marginTop":"5%", "borderRadius":"5%"}}src={this.props.image}/></a>
             <br/>
           </div>
 
           <div className="content">
+            <img alt="sup" style={{"width":"30px", "borderRadius":"30%"}}src="http://global.fncstatic.com/static/v/all/static-page/apps-products/img/fn-logo.png"/>
+
             <span className="card-title">{this.props.title}</span> <br/><br/>
             <p style={{"fontStyle":"italic"}}>Abstract:</p>
             <p>{this.props.abstract}</p>

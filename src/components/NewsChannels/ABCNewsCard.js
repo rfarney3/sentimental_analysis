@@ -60,13 +60,19 @@ class ABCNewsCard extends React.Component {
     return (
       <div>
         <Col className="news-card" span={6}>
-          <a href={this.props.url} target="_blank"><img alt="ABC pic" style={{"width":"100px", "height":"70px", "borderRadius":"15px", "margin-top":"5%"}}src={image}/></a>
-          <div>
-            <span className="card-title">{this.props.title}</span> <br/><br/>
-            <span style={{"fontStyle":"italic"}}>Abstract:</span><br/>
+          <div className="card-floater">
+            <a href={this.props.url} target="_blank"><img alt="ABC pic" style={{"width":"100px", "height":"70px", "marginTop":"5%", "borderRadius":"5%"}}src={image}/></a>
+            <br/>
           </div>
-          <p>{this.props.abstract}</p>
-          <Bar data={data}/>
+
+          <div className="content">
+            <img alt="sup" style={{"width":"30px", "borderRadius":"30%"}}src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/e3/5b/08/e35b0864-bcae-517c-b2b0-d5481996818a/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-4.png/1200x630bb.jpg"/>
+
+            <span className="card-title">{this.props.title}</span> <br/><br/>
+            <p style={{"fontStyle":"italic"}}>Abstract:</p>
+            <p>{this.props.abstract}</p>
+            <Bar data={data}/>
+          </div>
         </Col>
       </div>
     )

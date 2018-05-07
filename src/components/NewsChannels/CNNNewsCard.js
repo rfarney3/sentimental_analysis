@@ -58,15 +58,13 @@ class CNNNewsCard extends React.Component {
       <div>
         <Col className="news-card" span={6}>
           <div className="card-floater">
-            <div>
-              <p style={{"fontWeight":"400"}}>C N N</p>
-              <img alt="sup" style={{"width":"30px", "textAlign":"left"}}src="https://yt3.ggpht.com/a-/AJLlDp0ZdRWMgQ0r70gOBmYQd6dM8xcUhipQvQt_Gw=s900-mo-c-c0xffffffff-rj-k-no"/>
-            </div>
-            <a href={this.props.url} target="_blank"><img alt="CNN pic" style={{"width":"100px", "height":"70px"}}src={this.props.image}/></a>
+            <a href={this.props.url} target="_blank"><img alt="CNN pic" style={{"width":"100px", "height":"70px", "marginTop":"5%", "borderRadius":"5%"}}src={this.props.image}/></a>
             <br/>
           </div>
 
           <div className="content">
+            <img alt="sup" style={{"width":"30px", "borderRadius":"30%"}}src="https://yt3.ggpht.com/a-/AJLlDp0ZdRWMgQ0r70gOBmYQd6dM8xcUhipQvQt_Gw=s900-mo-c-c0xffffffff-rj-k-no"/>
+
             <span className="card-title">{this.props.title}</span> <br/><br/>
             <p style={{"fontStyle":"italic"}}>Abstract:</p>
             <p>{this.props.abstract}</p>

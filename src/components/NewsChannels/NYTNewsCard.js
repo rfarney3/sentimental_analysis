@@ -58,15 +58,13 @@ class NYTNewsCard extends React.Component {
       <div>
         <Col className="news-card" span={6}>
           <div className="card-floater">
-            <div>
-              <p style={{"fontWeight":"400"}}>New York Times</p>
-              <img alt="sup" style={{"width":"30px", "textAlign":"left"}}src="http://www.nytimes.com/services/mobile/img/ios-newsreader-icon.png"/>
-            </div>
-            <a href={this.props.url} target="_blank"><img alt="NYT pic" src={this.props.image}/></a>
+            <a href={this.props.url} target="_blank"><img alt="NYT pic" style={{"width":"100px", "height":"70px", "marginTop":"5%", "borderRadius":"5%"}} src={this.props.image}/></a>
             <br/>
           </div>
 
           <div className="content">
+            <img alt="sup" style={{"width":"30px", "borderRadius":"30%"}}src="http://www.nytimes.com/services/mobile/img/ios-newsreader-icon.png"/>
+
             <span className="card-title">{this.props.title}</span> <br/><br/>
             <p style={{"fontStyle":"italic"}}>Abstract:</p>
             <p>{this.props.abstract}</p>
