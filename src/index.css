@@ -57,11 +57,10 @@ body {
 
 .title {
   margin-top: 4%;
-  margin-left: 14.5%;
+  margin-left: 14.9%;
   font-size: 120px;
-  background-color: white;
-  color: red;
-
+  color: white;
+  font-family: "Rokkitt", serif
 }
 
 .head {

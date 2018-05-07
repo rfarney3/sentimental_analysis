@@ -25,7 +25,6 @@ class Category extends React.Component {
     }
   }
 
-
   render() {
     return (
       <div onClick={this.handleClick}>

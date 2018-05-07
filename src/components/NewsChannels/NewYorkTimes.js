@@ -47,15 +47,6 @@ class NewYorkTimes extends React.Component {
     return uniques;
   }
 
-  handleUniques = (categoryObj) => {
-    let uniques = []
-    for (let key in categoryObj) {
-      if(uniques.indexOf(key) === -1) {
-        uniques.push(key)
-      }
-    }
-    return uniques;
-  }
 
   printCategories = () => {
     let categories = this.getUniqueCategories()

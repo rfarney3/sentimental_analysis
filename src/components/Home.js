@@ -1,16 +1,18 @@
 import React from "react"
 import NavBar from "./NavBar.js"
 import Header from "./Header.js"
-import { Line } from "react-chartjs-2"
+import { Line, Bar } from "react-chartjs-2"
 
 import { connect } from "react-redux"
 import { fetchArticles } from "../actions/articleActions.js"
-
 import { bindActionCreators } from "redux"
 
 
 class Home extends React.Component {
 
+  state = {
+    date: "Select All",
+  }
   componentDidMount() {
     this.props.getArticles()
   }
@@ -38,6 +40,51 @@ class Home extends React.Component {
       return a + b
     }, 0)
     return (sum / length)
+  }
+
+  getUniqueDates = () => {
+    let datesObj = {}
+
+    if (this.props.articles.loading === true) {
+      this.props.articles.articles.forEach((article) => {
+        if(!datesObj[article.date]) {
+          datesObj[article.date] = 1
+        } else {
+          datesObj[article.date] += 1
+        }
+      })
+    }
+    let uniques = []
+    for (let key in datesObj) {
+      if(uniques.indexOf(key) === -1) {
+        uniques.push(key)
+      }
+    }
+    return uniques;
+  }
+
+  onChange = (event) => {
+    this.setState({
+      date: event.target.value,
+      filteredArticles: this.getArticlesByDate()
+    })
+  }
+
+  getArticlesByDate = (emotion, dateState) => {
+    if(this.props.articles.loading === true) {
+      let filteredDates = this.props.articles.articles.filter((article) => {
+        return article.date === dateState
+      })
+      let emots = filteredDates.map((article) => {
+        return {anger: article.anger, joy: article.joy, fear: article.fear, surprise: article.surprise, sadness: article.sadness}
+      })
+      let arrayOfData = emots.map((emotes) => {
+        return parseInt(emotes[emotion] * 100, 10)
+      })
+      return this.getAverage(arrayOfData)
+    } else {
+      return null
+    }
   }
 
   render() {
@@ -97,7 +144,57 @@ class Home extends React.Component {
           }
         }
     }
+    const data2 = {
+        labels: [`By ${this.state.date}`],
 
+        datasets: [{
+          label: "Anger",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: '#FF4136',
+          data: [this.getArticlesByDate("anger", this.state.date)]
+        },
+        {
+          label: "Joy",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: '#A1E9F4',
+          data: [this.getArticlesByDate("joy", this.state.date)]
+        },
+        {
+          label: "Fear",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: '#480710',
+          data: [this.getArticlesByDate("fear", this.state.date)]
+        },
+        {
+          label: "Surprise",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: '#01FF70',
+          data: [this.getArticlesByDate("surprise", this.state.date)]
+        },
+        {
+          label: "Sadness",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: '#001f3f',
+          data: [this.getArticlesByDate("sadness", this.state.date)]
+        }
+      ],
+        scaleBeginAtZero : true,
+        options: {
+          scales: {
+            xAxes: [{
+              stacked: true,
+            }],
+              yAxes: [{
+                stacked: true,
+              }]
+          }
+        }
+    }
     return (
       <div className="home-page">
         <NavBar />
@@ -105,7 +202,14 @@ class Home extends React.Component {
           <Header />
         </div>
         <div style={{"marginTop":"30%"}}>
-          <Line data={data}/>
+          {this.state.date !== "Select All" ? <Bar data={data2}/> : <Line data={data}/>}
+        </div>
+        <div>
+          Filter By Date <br/>
+          <select onChange={this.onChange}>
+            <option>Select Date</option>
+            {this.getUniqueDates().map((date, index) => <option key={index}>{date}</option>)}
+          </select>
         </div>
       </div>
     )
