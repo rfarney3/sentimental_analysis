@@ -38,7 +38,7 @@ class Charts extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div style={{"marginLeft":"10%", "marginRight":"10%"}}>
           {this.renderCharts()}
         </div>
         <br/>

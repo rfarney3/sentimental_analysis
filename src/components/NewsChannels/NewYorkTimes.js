@@ -58,14 +58,16 @@ class NewYorkTimes extends React.Component {
 
   render() {
     return (
-      <div className="home-page">
-        <NavBar />
+    <div>
+      <NavBar />
+      <div className="nyt-page">
           <Charts />
           <br/>
           <h1 onClick={this.handleClick}>New York Times News Categories</h1>
           <div>
             <h3>{this.state.clicked ? this.printCategories() : null}</h3>
           </div>
+        </div>
       </div>
     )
   }

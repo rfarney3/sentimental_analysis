@@ -143,14 +143,18 @@ class BBC extends React.Component {
     }
 
     return (
-      <div className="home-page">
-        <NavBar />
-        <Bar data={data} />
+      <div>
+      <NavBar />
+      <div className="bbc-page">
+        <div style={{"marginLeft":"10%", "marginRight":"10%"}}>
+          <Bar data={data} />
+        </div>
         <h1 onClick={this.handleClick}>BBC News Stories</h1>
         <div>
           {this.state.clicked ? <Filter onChange={this.onChange}/> : null}
           {this.state.clicked ? this.state.filtered.length > 0 ? this.createFilteredCards() : this.createCards() : null}
         </div>
+      </div>
       </div>
     )
   }

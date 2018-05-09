@@ -142,13 +142,17 @@ class ABC extends React.Component {
     }
 
     return (
-      <div className="home-page">
+      <div>
         <NavBar />
-        <Bar data={data} />
-        <h1 onClick={this.handleClick}>ABC News Stories</h1>
-        <div>
-          {this.state.clicked ? <Filter onChange={this.onChange}/> : null}
-          {this.state.clicked ? this.state.filtered.length > 0 ? this.createFilteredCards() : this.createCards() : null}
+        <div className="abc-page">
+          <div style={{"marginLeft":"10%", "marginRight":"10%"}}>
+            <Bar data={data} />
+          </div>
+          <h1 onClick={this.handleClick}>ABC News Stories</h1>
+          <div>
+            {this.state.clicked ? <Filter onChange={this.onChange}/> : null}
+            {this.state.clicked ? this.state.filtered.length > 0 ? this.createFilteredCards() : this.createCards() : null}
+          </div>
         </div>
       </div>
     )

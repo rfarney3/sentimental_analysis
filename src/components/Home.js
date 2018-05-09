@@ -196,20 +196,18 @@ class Home extends React.Component {
         }
     }
     return (
-      <div className="home-page">
-        <NavBar />
+      <div>
+      <NavBar/>
+      <Header/>
         <div>
-          <Header />
-        </div>
-        <div style={{"marginTop":"30%"}}>
-          {this.state.date !== "Select All" ? <Bar data={data2}/> : <Line data={data}/>}
-        </div>
-        <div>
-          Filter By Date <br/>
+          <h3>Filter By Date</h3>
           <select onChange={this.onChange}>
-            <option>Select Date</option>
+            <option>Select All</option>
             {this.getUniqueDates().map((date, index) => <option key={index}>{date}</option>)}
           </select>
+        </div>
+        <div style={{"marginLeft":"10%", "marginRight":"10%"}}>
+          {this.state.date === "Select All" ? <Line data={data}/> : <Bar data={data2}/>}
         </div>
       </div>
     )

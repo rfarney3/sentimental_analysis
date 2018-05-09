@@ -15,7 +15,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div style={{"width":"100%"}}>
+      <div>
         <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
           <Menu.Item key="mail"><Icon type="mail" />
             <span><a href="http://localhost:3001/login" rel="noopener noreferrer">Login</a></span>

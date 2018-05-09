@@ -45,9 +45,89 @@ body {
   margin-right: 2rem;
 }
 
-.home-page {
+.nyt-page {
   margin-left: 2rem;
   margin-right: 2rem;
+}
+
+.nyt-page:after {
+  content: "";
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/17/Headline_of_the_New_York_Times_June-29-1914.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
+.cnn-page {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.cnn-page:after {
+  content: "";
+  background-image: url("http://web.goeaglesearch.com/videos/wp-content/uploads/sites/17/2017/02/maxresdefault_live.jpg");
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
+.bbc-page {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.bbc-page:after {
+  content: "";
+  background-image: url("http://www.thecommentator.com/system/articles/inner_pictures/000/003/646/original/BBC-News.jpg?1369822561");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
+.abc-page {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.abc-page:after {
+  content: "";
+  background-image: url("https://s.abcnews.com/images/Live/ABC_APPLETV_STRMNOW_2_16x9_992.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
+.fox-page {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.fox-page:after {
+  content: "";
+  background-image: url("http://insider.foxnews.com/sites/insider.foxnews.com/files/styles/780/public/field/image/hannitymono_0.jpg?itok=ardFgMC5");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
 }
 
 .buttons-div {
@@ -55,24 +135,19 @@ body {
 }
 
 .title {
-  margin-top: 4%;
-  margin-left: 14.9%;
+  margin-top: 2%;
+  margin-left: 18%;
   font-size: 120px;
   color: white;
   font-family: "Rokkitt", serif
 }
 
 .head {
-  width: 95%;
-  height: 50%;
   background-color: gray;
-  position: absolute;
-  display: flex;
-  text-align: center;
 }
 
 
-.fox {
+.Fox {
   display: block;
   width: 100px;
   height: 100px;
@@ -85,7 +160,7 @@ body {
 }
 
 
-.bbc {
+.BBC {
   display: block;
   width: 100px;
   height: 100px;
@@ -97,7 +172,7 @@ body {
   animation: moveX 4.05s linear 0s infinite alternate, moveY 5.4s linear 0s infinite alternate;
 }
 
-.abc {
+.ABC {
   display: block;
   width: 100px;
   height: 100px;
@@ -109,7 +184,7 @@ body {
   animation: moveX 3.85s linear 0s infinite alternate, moveY 1.9s linear 0s infinite alternate;
 }
 
-.nyt {
+.NewYorkTimes {
   display: block;
   width: 100px;
   height: 100px;
@@ -121,7 +196,7 @@ body {
   animation: moveX 2.69s linear 0s infinite alternate, moveY 2.4s linear 0s infinite alternate;
 }
 
-.cnn {
+.CNN {
   display: block;
   width: 100px;
   height: 100px;
@@ -134,26 +209,26 @@ body {
 }
 
 @-webkit-keyframes moveX {
-  from { left: 0; } to { left: 92%; }
+  from { left: 0; } to { left: 100%; }
 }
 @-moz-keyframes moveX {
-  from { left: 0; } to { left: 92%; }
+  from { left: 0; } to { left: 100%; }
 }
 @-o-keyframes moveX {
-  from { left: 0; } to { left: 92%; }
+  from { left: 0; } to { left: 100%; }
 }
 @keyframes moveX {
-  from { left: 0; } to { left: 92%; }
+  from { left: 0; } to { left: 100%; }
 }
 @-webkit-keyframes moveY {
-  from { top: 0; } to { top: 218px; }
+  from { top: 0; } to { top: 100%; }
 }
 @-moz-keyframes moveY {
-  from { top: 0; } to { top: 218px; }
+  from { top: 0; } to { top: 100%; }
 }
 @-o-keyframes moveY {
-  from { top: 0; } to { top: 218px; }
+  from { top: 0; } to { top: 100%; }
 }
 @keyframes moveY {
-  from { top: 0; } to { top: 218px; }
+  from { top: 0; } to { top: 100%; }
 }
