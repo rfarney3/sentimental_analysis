@@ -2,7 +2,6 @@ import React from "react"
 import NavBar from "./NavBar.js"
 import Header from "./Header.js"
 import { Line, Bar } from "react-chartjs-2"
-
 import { connect } from "react-redux"
 import { fetchArticles } from "../actions/articleActions.js"
 import { bindActionCreators } from "redux"
@@ -66,7 +65,6 @@ class Home extends React.Component {
   onChange = (event) => {
     this.setState({
       date: event.target.value,
-      filteredArticles: this.getArticlesByDate()
     })
   }
 
@@ -132,20 +130,10 @@ class Home extends React.Component {
           data: [this.getEmotionByStation("anger", "British Broadcasting Corporation"), this.getEmotionByStation("joy", "British Broadcasting Corporation"), this.getEmotionByStation("fear", "British Broadcasting Corporation"), this.getEmotionByStation("surprise", "British Broadcasting Corporation"), this.getEmotionByStation("sadness", "British Broadcasting Corporation")]
         }
       ],
-        scaleBeginAtZero : true,
-        options: {
-          scales: {
-            xAxes: [{
-              stacked: true,
-            }],
-              yAxes: [{
-                stacked: true,
-              }]
-          }
-        }
+
     }
     const data2 = {
-        labels: [`By ${this.state.date}`],
+        labels: [this.state.date],
 
         datasets: [{
           label: "Anger",
@@ -183,31 +171,37 @@ class Home extends React.Component {
           data: [this.getArticlesByDate("sadness", this.state.date)]
         }
       ],
-        scaleBeginAtZero : true,
-        options: {
-          scales: {
-            xAxes: [{
-              stacked: true,
-            }],
-              yAxes: [{
-                stacked: true,
-              }]
-          }
-        }
     }
+    const options = {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 16
+              }
+          }],
+          xAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 25
+              }
+          }]
+      }
+    }
+
     return (
       <div>
       <NavBar/>
       <Header/>
-        <div>
-          <h3>Filter By Date</h3>
+        <div className="home-page" style={{"marginLeft":"5%", "marginRight":"5%"}}>
+          <h1 style={{"fontFamily": "'Rokkitt', serif"}}>Filter By Date</h1>
           <select onChange={this.onChange}>
             <option>Select All</option>
             {this.getUniqueDates().map((date, index) => <option key={index}>{date}</option>)}
           </select>
         </div>
         <div style={{"marginLeft":"10%", "marginRight":"10%"}}>
-          {this.state.date === "Select All" ? <Line data={data}/> : <Bar data={data2}/>}
+          {this.state.date === "Select All" ? <Line data={data} options={options}/> : <Bar data={data2} options={options}/>}
         </div>
       </div>
     )

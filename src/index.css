@@ -45,6 +45,23 @@ body {
   margin-right: 2rem;
 }
 
+.nyt-charts {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.home-page:after {
+  content: "";
+  background: url("https://media.wsls.com/photo/2017/04/24/Whats%20News%20Today_1493062809311_9576980_ver1.0_1280_720.png");
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
 .nyt-page {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -53,7 +70,7 @@ body {
 .nyt-page:after {
   content: "";
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/17/Headline_of_the_New_York_Times_June-29-1914.jpg");
-  opacity: 0.3;
+  opacity: 0.2;
   top: 0;
   left: 0;
   bottom: 0;
@@ -135,22 +152,21 @@ body {
 }
 
 .title {
-  margin-top: 2%;
-  margin-left: 18%;
   font-size: 120px;
   color: white;
-  font-family: "Rokkitt", serif
+  font-family: "Rokkitt", serif;
+  text-align: center;
 }
 
 .head {
-  background-color: gray;
+  background-color: #E53935;
 }
 
 
 .Fox {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   position: absolute;
   -webkit-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
@@ -162,8 +178,8 @@ body {
 
 .BBC {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   position: absolute;
   -webkit-animation: moveX 4.05s linear 0s infinite alternate, moveY 5.4s linear 0s infinite alternate;
@@ -174,8 +190,8 @@ body {
 
 .ABC {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   position: absolute;
   -webkit-animation: moveX 3.85s linear 0s infinite alternate, moveY 1.9s linear 0s infinite alternate;
@@ -186,8 +202,8 @@ body {
 
 .NewYorkTimes {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   position: absolute;
   -webkit-animation: moveX 2.69s linear 0s infinite alternate, moveY 2.4s linear 0s infinite alternate;
@@ -198,8 +214,8 @@ body {
 
 .CNN {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   position: absolute;
   -webkit-animation: moveX 2.05s linear 0s infinite alternate, moveY 1.4s linear 0s infinite alternate;
@@ -209,26 +225,26 @@ body {
 }
 
 @-webkit-keyframes moveX {
-  from { left: 0; } to { left: 100%; }
+  from { left: 0; } to { left: 97%; }
 }
 @-moz-keyframes moveX {
-  from { left: 0; } to { left: 100%; }
+  from { left: 0; } to { left: 97%; }
 }
 @-o-keyframes moveX {
-  from { left: 0; } to { left: 100%; }
+  from { left: 0; } to { left: 97%; }
 }
 @keyframes moveX {
-  from { left: 0; } to { left: 100%; }
+  from { left: 0; } to { left: 97%; }
 }
 @-webkit-keyframes moveY {
-  from { top: 0; } to { top: 100%; }
+  from { top: 5%; } to { top: 15.5%; }
 }
 @-moz-keyframes moveY {
-  from { top: 0; } to { top: 100%; }
+  from { top: 5%; } to { top: 15.5%; }
 }
 @-o-keyframes moveY {
-  from { top: 0; } to { top: 100%; }
+  from { top: 5%; } to { top: 15.5%; }
 }
 @keyframes moveY {
-  from { top: 0; } to { top: 100%; }
+  from { top: 5%; } to { top: 15.5%; }
 }

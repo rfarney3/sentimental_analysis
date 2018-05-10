@@ -125,20 +125,22 @@ class ABC extends React.Component {
                 data: [this.getEmotionByStation("sadness", "American Broadcasting Corporation")],
             }
         ],
-        scaleBeginAtZero : true,
-        options: {
-          scales: {
-            xAxes: [{
-              stacked: true,
-            }],
-              yAxes: [{
-                stacked: true,
-                ticks: {
-                  beginAtZero: true
-                },
-              }]
-          }
-        }
+    }
+    const options = {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 16
+              }
+          }],
+          xAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 16
+              }
+          }]
+      }
     }
 
     return (
@@ -146,9 +148,9 @@ class ABC extends React.Component {
         <NavBar />
         <div className="abc-page">
           <div style={{"marginLeft":"10%", "marginRight":"10%"}}>
-            <Bar data={data} />
+            <Bar data={data} options={options}/>
           </div>
-          <h1 onClick={this.handleClick}>ABC News Stories</h1>
+          <h1 style={{"textDecoration":"underline"}} onClick={this.handleClick}>ABC News Stories</h1>
           <div>
             {this.state.clicked ? <Filter onChange={this.onChange}/> : null}
             {this.state.clicked ? this.state.filtered.length > 0 ? this.createFilteredCards() : this.createCards() : null}

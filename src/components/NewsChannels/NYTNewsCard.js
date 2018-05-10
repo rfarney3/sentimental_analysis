@@ -39,20 +39,16 @@ class NYTNewsCard extends React.Component {
                 data: [this.props.sadness],
             }
         ],
-        scaleBeginAtZero : true,
-        options: {
-          scales: {
-            xAxes: [{
-              stacked: true,
-            }],
-              yAxes: [{
-                stacked: true,
-                ticks: {
-                  beginAtZero: true
-                },
-              }]
-          }
-        }
+    }
+    const options = {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 16
+              }
+          }],
+      }
     }
     return (
       <div>
@@ -62,13 +58,17 @@ class NYTNewsCard extends React.Component {
             <br/>
           </div>
 
+
           <div className="content">
             <img alt="sup" style={{"width":"30px", "borderRadius":"30%"}}src="http://www.nytimes.com/services/mobile/img/ios-newsreader-icon.png"/>
 
-            <span className="card-title">{this.props.title}</span> <br/><br/>
+            <span className="card-title">{this.props.title}</span> <br/>
+            <a href={`https://twitter.com/intent/tweet?url=${this.props.url}&text=Yo%20This%20Ish%20Craaaazy`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter"><i aria-label="Share on Twitter" class="SectionBarShare-shareIcon--2Rcfq SectionBarShare-twitter--1duan"></i>Tweet</a>
+            <br/>
+            <br/>
             <p style={{"fontStyle":"italic"}}>Abstract:</p>
             <p>{this.props.abstract}</p>
-            <Bar data={data}/>
+            <Bar data={data} options={options}/>
           </div>
         </Col>
       </div>

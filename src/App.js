@@ -16,23 +16,6 @@ import ABC from "./components/NewsChannels/ABC.js"
 
 class App extends Component {
   render() {
-
-  // submitForm = (history) => {
-  //   if (this.state.form.signingUp) {
-  //     this.register(history)
-  //   } else if (this.state.form.username !== '') {
-  //     this.setState({
-  //       form: {
-  //         ...this.state.form,
-  //         loggedIn: true
-  //       }
-  //       // currentUser: this.findUser()
-  //     }, () => {
-  //       history.push("/settings")
-  //     })
-  //   }
-  // }
-
     return (
       <div>
 

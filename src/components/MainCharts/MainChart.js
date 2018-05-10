@@ -31,7 +31,7 @@ class MainChart extends React.Component {
 
   render() {
     const data = {
-        labels: ["All Time NYT News Sentiment (from #AboutAWeekAgo)"],
+        labels: ["Most Popular Stories Sentimental Analysis (from May 3, 2018)"],
         datasets: [
             {
                 label: "Anger",
@@ -64,25 +64,26 @@ class MainChart extends React.Component {
                 data: [this.getEmotionByStation("sadness", "New York Times")],
             }
         ],
-        scaleBeginAtZero : true,
-        options: {
-          scales: {
-            xAxes: [{
-              stacked: true,
-            }],
-              yAxes: [{
-                stacked: true,
-                ticks: {
-                  beginAtZero: true
-                },
-              }]
-          }
-        }
     }
-
+    const options = {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 16
+              }
+          }],
+          xAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 23
+              }
+          }]
+      }
+    }
     return (
-      <div>
-        <Bar data={data} />
+      <div className="nyt-charts">
+        <Bar data={data} options={options}/>
       </div>
     )
   }

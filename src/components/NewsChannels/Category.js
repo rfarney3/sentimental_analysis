@@ -28,7 +28,7 @@ class Category extends React.Component {
   render() {
     return (
       <div onClick={this.handleClick}>
-        <h3>{this.props.category}</h3>
+        <h3 style={{"backgroundColor":"black", "color":"white"}}>{this.props.category}</h3>
         <div className="card-holder">
           {this.state.clicked ? this.createCards(this.props.category) : null}
         </div>

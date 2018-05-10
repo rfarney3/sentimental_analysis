@@ -29,7 +29,7 @@ class WorldChart extends React.Component {
 
   render() {
     const data = {
-        labels: ["World"],
+        labels: ["'World' Sentimental Analysis (from May 3, 2018)"],
         datasets: [
             {
                 label: "Anger",
@@ -62,25 +62,27 @@ class WorldChart extends React.Component {
                 data: [this.getEmotionByCategory("sadness", "World")],
             }
         ],
-        scaleBeginAtZero : true,
-        options: {
-          scales: {
-            xAxes: [{
-              stacked: true,
-            }],
-              yAxes: [{
-                stacked: true,
-                ticks: {
-                  beginAtZero: true
-                },
-              }]
-          }
-        }
+    }
+    const options = {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 16
+              }
+          }],
+          xAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 23
+              }
+          }]
+      }
     }
 
     return (
-      <div>
-        <Bar data={data}/>
+      <div className="nyt-charts">
+        <Bar data={data} options={options}/>
       </div>
     )
   }

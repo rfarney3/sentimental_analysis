@@ -39,21 +39,18 @@ class BBCNewsCard extends React.Component {
                 data: [this.props.sadness],
             }
         ],
-        scaleBeginAtZero : true,
-        options: {
-          scales: {
-            xAxes: [{
-              stacked: true,
-            }],
-              yAxes: [{
-                stacked: true,
-                ticks: {
-                  beginAtZero: true
-                },
-              }]
-          }
-        }
     }
+    const options = {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true,
+                  fontSize: 16
+              }
+          }],
+      }
+    }
+
     return (
       <div>
         <Col className="news-card" span={6}>
@@ -65,10 +62,14 @@ class BBCNewsCard extends React.Component {
           <div className="content">
             <img alt="sup" style={{"width":"30px", "borderRadius":"30%"}}src="https://pmcdeadline2.files.wordpress.com/2016/06/bbc-logo.jpg?w=446&h=299&crop=1"/>
 
-            <span className="card-title">{this.props.title}</span> <br/><br/>
+            <span className="card-title">{this.props.title}</span> <br/>
+            <a href={`https://twitter.com/intent/tweet?url=${this.props.url}&text=Yo%20This%20Ish%20Craaaazy`} target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter"><i aria-label="Share on Twitter" class="SectionBarShare-shareIcon--2Rcfq SectionBarShare-twitter--1duan"></i>Tweet</a>
+            <br/>
+            <br/>
+          
             <p style={{"fontStyle":"italic"}}>Abstract:</p>
             <p>{this.props.abstract}</p>
-            <Bar data={data}/>
+            <Bar data={data} options={options}/>
           </div>
         </Col>
       </div>
