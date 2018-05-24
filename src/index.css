@@ -60,6 +60,8 @@ body {
   right: 0;
   position: fixed;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .nyt-page {
@@ -77,6 +79,8 @@ body {
   right: 0;
   position: fixed;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .cnn-page {
@@ -94,6 +98,8 @@ body {
   right: 0;
   position: fixed;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bbc-page {
@@ -111,6 +117,8 @@ body {
   right: 0;
   position: fixed;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .abc-page {
@@ -128,6 +136,8 @@ body {
   right: 0;
   position: fixed;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .fox-page {
@@ -145,6 +155,8 @@ body {
   right: 0;
   position: fixed;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .buttons-div {
@@ -225,26 +237,26 @@ body {
 }
 
 @-webkit-keyframes moveX {
-  from { left: 0; } to { left: 97%; }
+  from { left: 0; } to { left: 95%; }
 }
 @-moz-keyframes moveX {
-  from { left: 0; } to { left: 97%; }
+  from { left: 0; } to { left: 95%; }
 }
 @-o-keyframes moveX {
-  from { left: 0; } to { left: 97%; }
+  from { left: 0; } to { left: 95%; }
 }
 @keyframes moveX {
-  from { left: 0; } to { left: 97%; }
+  from { left: 0; } to { left: 95%; }
 }
 @-webkit-keyframes moveY {
-  from { top: 5%; } to { top: 15.5%; }
+  from { top: 7.5%; } to { top: 24.3%; }
 }
 @-moz-keyframes moveY {
-  from { top: 5%; } to { top: 15.5%; }
+  from { top: 7.5%; } to { top: 24.3%; }
 }
 @-o-keyframes moveY {
-  from { top: 5%; } to { top: 15.5%; }
+  from { top: 7.5%; } to { top: 24.3%; }
 }
 @keyframes moveY {
-  from { top: 5%; } to { top: 15.5%; }
+  from { top: 7.5%; } to { top: 24.3%; }
 }

@@ -203,6 +203,7 @@ class Home extends React.Component {
         <div style={{"marginLeft":"10%", "marginRight":"10%"}}>
           {this.state.date === "Select All" ? <Line data={data} options={options}/> : <Bar data={data2} options={options}/>}
         </div>
+          {this.state.date === "Select All" ? <h1 style={{"textAlign":"center", "fontFamily":"'Rokkitt', serif"}}>Total Sentiment Amongst Most Popular Articles (May 3, 2018)</h1> : null} 
       </div>
     )
   }
